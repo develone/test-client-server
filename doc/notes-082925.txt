@@ -1,0 +1,22 @@
+08/29/25
+The client can be any host on 192.168.12.xx tmo network
+The server is HBserver 162.197.186.179
+
+git clone https://github.com/develone/test-client-server.git
+
+devel@HBserver:~ $ cd ~/test-client-server/server
+devel@HBserver:~/test-client-server/server $ gcc server.c -o server
+The following is needed since the webserver is run on 8080
+devel@HBserver:~/test-client-server/server $ sudo systemctl stop nginx
+devel@HBserver:~/test-client-server/server $ ./server 
+
+Server listening on port 8080
+Client message: Hello from client
+Hello message sent to client
+
+devel@pi5-90: $ cd test-client-server/client
+devel@pi5-90:~/test-client-server/client $ gcc client.c -o client
+devel@pi5-90:~/test-client-server/client $ ./client
+Hello message sent to server
+Server response: Hello from server
+
